@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://png.pngtree.com/thumb_back/fh260/background/20230714/pngtree-3d-render-of-food-delivery-image_3857591.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.register-card {
+  width: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+
+  padding: 40px;
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+  animation: slideUp 0.8s ease;
+}
+
+.logo {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ff5a1f;
+  margin-bottom: 15px;
+}
+
+.register-card h2 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.register-card p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.3);
+}
+
+.register-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+
+  background: #ff5a1f;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #e84a10;
+  transform: translateY(-2px);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #555;
+}
+
+.login-link a {
+  color: #ff5a1f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .register-card {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+}

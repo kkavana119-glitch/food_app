@@ -1,0 +1,352 @@
+/* Base Layout Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f7f9fc;
+    color: #333;
+    padding-bottom: 50px;
+}
+
+/* Header styling */
+.page-header {
+    background: #ffffff;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    color: #ff4757;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.page-header h1 i {
+    margin-right: 10px;
+}
+
+.page-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Container & Form Wrapper */
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.checkout-form-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Grid layout Columns */
+.checkout-left {
+    flex: 1 1 650px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.checkout-right {
+    flex: 1 1 380px;
+}
+
+/* Cards shared design */
+.card, .summary-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.card h2, .summary-card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card h2 i, .summary-card h2 i {
+    color: #ff4757;
+}
+
+/* Form Fields */
+.input-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.input-box, .textarea-box {
+    position: relative;
+    flex: 1;
+}
+
+.input-box i, .textarea-box i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+.textarea-box i {
+    top: 20px;
+    transform: none;
+}
+
+.input-box input, .textarea-box textarea {
+    width: 100%;
+    padding: 12px 14px 12px 40px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #334155;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.textarea-box textarea {
+    height: 100px;
+    resize: none;
+}
+
+.input-box input:focus, .textarea-box textarea:focus {
+    border-color: #ff4757;
+    box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.15);
+}
+
+/* Payment Selection Radio Cards */
+.payment-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payment-card:hover {
+    border-color: #ff4757;
+    background-color: #fffafb;
+}
+
+.payment-card input[type="radio"] {
+    display: none;
+}
+
+.radio-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    margin-right: 16px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.payment-card input[type="radio"]:checked + .radio-circle {
+    border-color: #ff4757;
+}
+
+.payment-card input[type="radio"]:checked + .radio-circle::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #ff4757;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.payment-icon {
+    font-size: 1.5rem;
+    color: #475569;
+    width: 40px;
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.payment-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.payment-info p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+/* Order Summary Items Pane */
+.order-items-list {
+    max-height: 240px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-right: 5px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.order-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.order-details {
+    flex: 1;
+}
+
+.order-details h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.order-details p {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.order-item span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 15px 0;
+}
+
+/* Summary breakdown Rows */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.total-box span {
+    font-weight: 600;
+    color: #475569;
+}
+
+.total-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ff4757;
+}
+
+/* Security validation badge box */
+.secure-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.secure-box i {
+    color: #16a34a;
+    font-size: 1.3rem;
+}
+
+.secure-box h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #14532d;
+}
+
+.secure-box p {
+    font-size: 0.75rem;
+    color: #166534;
+}
+
+/* Primary Action Buttons */
+.place-order {
+    width: 100%;
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+}
+
+.place-order:hover {
+    background: #e84118;
+}
+
+.terms {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 12px;
+    line-height: 1.4;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #94a3b8;
+    padding: 20px 0;
+}
+
+/* Responsiveness adjustments */
+@media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+}

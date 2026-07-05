@@ -1,0 +1,569 @@
+/* Modern Reset & Variable configuration */
+:root {
+  --primary-color: #ff5a36;
+  --primary-hover: #e04422;
+  --secondary-color: #10b981;
+  --secondary-hover: #059669;
+  --bg-gradient: linear-gradient(135deg, #fdfbf7 0%, #f5efe6 100%);
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #f1f5f9;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 12px 30px -5px rgba(0, 0, 0, 0.06);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ================= SUCCESS HERO CARD ================= */
+.success-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 50px 30px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.checkmark-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 25px;
+}
+
+.checkmark-circle {
+  width: 100%;
+  height: 100%;
+  background: #d1fae5;
+  color: var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  position: relative;
+  z-index: 2;
+  animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.pulse-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid #10b981;
+  animation: pulse 2s infinite ease-out;
+  opacity: 0;
+  z-index: 1;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.success-card h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.success-card p {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ================= GRID LAYOUT ================= */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ================= UNIVERSAL CARD STYLE ================= */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(241, 245, 249, 0.8);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+}
+
+.card-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  background: #fff0ec;
+  color: var(--primary-color);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* ================= RESTAURANT CARD ================= */
+.restaurant-card {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.restaurant-card img {
+  width: 120px;
+  height: 100px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.restaurant-details {
+  flex: 1;
+}
+
+.restaurant-details h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.restaurant-details p {
+  color: var(--text-muted);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #fff7ed;
+  color: #c2410c;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge .dot {
+  width: 8px;
+  height: 8px;
+  background: #ea580c;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ================= TIMELINE TRACKING ================= */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding: 10px 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  text-align: center;
+}
+
+.step .circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 1px #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.step-content {
+  margin-top: 12px;
+}
+
+.step-content span {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.step-content small {
+  display: block;
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* Active Status Timeline states */
+.step.active .circle {
+  background: var(--secondary-color);
+  color: white;
+  box-shadow: 0 0 0 4px #d1fae5;
+}
+
+.step.active .step-content span {
+  color: var(--text-main);
+}
+
+.step.current .circle {
+  background: var(--primary-color);
+  box-shadow: 0 0 0 4px #ffe4de;
+}
+
+.line {
+  position: absolute;
+  top: 23px;
+  height: 4px;
+  background: #e2e8f0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+/* Distribute step line markers correctly across flex space */
+.timeline .line:nth-of-type(2) {
+  left: 12.5%;
+  width: 25%;
+}
+.timeline .line:nth-of-type(4) {
+  left: 37.5%;
+  width: 25%;
+}
+.timeline .line:nth-of-type(6) {
+  left: 62.5%;
+  width: 25%;
+}
+
+.line.active {
+  background: var(--secondary-color);
+}
+
+/* ================= DETAILS ROW LISTS ================= */
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 15px;
+}
+
+.row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.row span {
+  color: var(--text-muted);
+}
+
+.row strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.highlight-text {
+  color: var(--primary-color) !important;
+}
+
+/* ================= ADDRESS CARD ================= */
+.address-content h5 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.address-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ================= ORDER SUMMARY ================= */
+.item-list {
+  margin-bottom: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.item p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.item .price {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+.bill-breakdown {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: var(--radius-md);
+}
+
+.bill-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}
+
+.free-text {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.total-row {
+  border-top: 1px dashed #cbd5e1;
+  margin-top: 15px;
+  padding-top: 15px;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+/* ================= CALL TO ACTIONS BUTTONS ================= */
+.action-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 90, 54, 0.25);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE MOBILE BRAKPOINTS ================= */
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  body {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .success-card h1 {
+    font-size: 28px;
+  }
+
+  .timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 15px;
+  }
+
+  .timeline .line {
+    display: block;
+    left: 21px !important;
+    width: 3px !important;
+    height: 40px;
+    transform: none;
+  }
+
+  .timeline .line:nth-of-type(2) {
+    top: 44px;
+  }
+  .timeline .line:nth-of-type(4) {
+    top: 118px;
+  }
+  .timeline .line:nth-of-type(6) {
+    top: 192px;
+  }
+
+  .step {
+    flex-direction: row;
+    text-align: left;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .step-content {
+    margin-top: 0;
+  }
+
+  .restaurant-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .restaurant-card img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .restaurant-details p {
+    justify-content: center;
+  }
+}
