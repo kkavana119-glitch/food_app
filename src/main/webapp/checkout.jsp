@@ -241,7 +241,7 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e){
 
         var options = {
 
-            key: "rzp_test_T9p8VqN8pMu7xS",
+            key: "rzp_test_xxxxxxxxxxxxxxx",
 
             amount: data.amount,
 
