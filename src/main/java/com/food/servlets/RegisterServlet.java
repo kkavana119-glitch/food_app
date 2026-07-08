@@ -18,55 +18,43 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/register")
 
 public class RegisterServlet extends HttpServlet {
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String name = req.getParameter("name");
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
-        String role = req.getParameter("role");
-        String address = req.getParameter("address");
-        String phoneNumber = req.getParameter("phoneNumber");
-        
-        String hashpw = BCrypt.hashpw(password, BCrypt.gensalt(8));
-        
-        Timestamp now = new Timestamp(System.currentTimeMillis());
-        
-        User user = new User();
 
-        // STEP 2: set values
-        user.setUserName(name);
-        user.setEmail(email);
-        user.setPassword(hashpw);
-        user.setRole(role);
-        user.setAddress(address);
-        user.setCreateDate(now);
-        user.setLastLoginDate(now);
-        user.setPhoneNumber(phoneNumber);
-        
-//        int otp = (int)(Math.random() * 9000) + 1000;
-//
-//     HttpSession session = req.getSession();
-//     session.setAttribute("otp", otp);
-//     session.setAttribute("tempUser", user);   
-//     session.setAttribute("phoneNumber", phoneNumber);
-//
-//     OtpService.sendOtp(phoneNumber, otp);
-//
-//     resp.sendRedirect("verifyOtp.jsp");
-       
-       
-      UserDAOImpl userDAOImpl = new UserDAOImpl();
-      int res = userDAOImpl.addUser(user);
-      
-      if(res == 1) {
-    	  resp.sendRedirect("login.html");
-      }
-      else {
-    	  resp.sendRedirect("register.html");
-      }
-		
+		String name = req.getParameter("name");
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		String role = req.getParameter("role");
+		String address = req.getParameter("address");
+		String phoneNumber = req.getParameter("phoneNumber");
+
+		String hashpw = BCrypt.hashpw(password, BCrypt.gensalt(8));
+
+		Timestamp now = new Timestamp(System.currentTimeMillis());
+
+		User user = new User();
+
+		user.setUserName(name);
+		user.setEmail(email);
+		user.setPassword(hashpw);
+		user.setRole(role);
+		user.setAddress(address);
+		user.setCreateDate(now);
+		user.setLastLoginDate(now);
+		user.setPhoneNumber(phoneNumber);
+
+
+		UserDAOImpl userDAOImpl = new UserDAOImpl();
+		int res = userDAOImpl.addUser(user);
+
+		if(res == 1) {
+			resp.sendRedirect("login.html");
+		}
+		else {
+			resp.sendRedirect("register.html");
+		}
+
 	}
 
 }

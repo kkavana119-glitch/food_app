@@ -35,7 +35,6 @@ public class UpdateUserServlet extends HttpServlet{
 	        user.setAddress(address);
 
 	        UserDAOImpl dao = new UserDAOImpl();
-
 	        dao.updateUser(user);
 
 	        resp.sendRedirect("UserManagementServlet");

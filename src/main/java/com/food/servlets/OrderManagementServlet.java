@@ -16,37 +16,37 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/OrderManagementServlet")
 
 public class OrderManagementServlet extends HttpServlet{
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		 OrdersDAOImpl dao = new OrdersDAOImpl();
 
-	        String action = req.getParameter("action");
+		OrdersDAOImpl dao = new OrdersDAOImpl();
 
-	        if(action == null) {
+		String action = req.getParameter("action");
 
-	            List<Orders> orderList = dao.getAllOrders();
+		if(action == null) {
 
-	            req.setAttribute("orderList", orderList);
+			List<Orders> orderList = dao.getAllOrders();
 
-	            RequestDispatcher rd = req.getRequestDispatcher("orderManagement.jsp");
+			req.setAttribute("orderList", orderList);
 
-	            rd.forward(req, resp);
-	        }
+			RequestDispatcher rd = req.getRequestDispatcher("orderManagement.jsp");
 
-	        else if(action.equals("edit")) {
+			rd.forward(req, resp);
+		}
 
-	            int ordersId = Integer.parseInt(req.getParameter("ordersId"));
+		else if(action.equals("edit")) {
 
-	            Orders order = dao.getOrderById(ordersId);
+			int ordersId = Integer.parseInt(req.getParameter("ordersId"));
 
-	            req.setAttribute("order", order);
+			Orders order = dao.getOrderById(ordersId);
 
-	            RequestDispatcher rd = req.getRequestDispatcher("updateOrder.jsp");
+			req.setAttribute("order", order);
 
-	            rd.forward(req, resp);
-	        }
+			RequestDispatcher rd = req.getRequestDispatcher("updateOrder.jsp");
+
+			rd.forward(req, resp);
+		}
 	}
 
 }

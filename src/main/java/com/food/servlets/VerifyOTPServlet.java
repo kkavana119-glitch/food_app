@@ -19,81 +19,78 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/VerifyOTPServlet")
 public class VerifyOTPServlet extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 
-        HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession(false);
 
-        if (session == null) {
-            resp.sendRedirect("register.html");
-            return;
-        }
+		if (session == null) {
+			resp.sendRedirect("register.html");
+			return;
+		}
 
-        String enteredOTP = req.getParameter("otp");
-        Integer generatedOTP = (Integer) session.getAttribute("otp");
+		String enteredOTP = req.getParameter("otp");
+		Integer generatedOTP = (Integer) session.getAttribute("otp");
 
-        if (generatedOTP != null &&
-                enteredOTP.equals(String.valueOf(generatedOTP))) {
+		if (generatedOTP != null &&
+				enteredOTP.equals(String.valueOf(generatedOTP))) {
 
-            // Read user details from session
-            String name = (String) session.getAttribute("name");
-            String email = (String) session.getAttribute("email");
-            String password = (String) session.getAttribute("password");
-            String role = (String) session.getAttribute("role");
-            String address = (String) session.getAttribute("address");
-            String phoneNumber = (String) session.getAttribute("phoneNumber");
+			String name = (String) session.getAttribute("name");
+			String email = (String) session.getAttribute("email");
+			String password = (String) session.getAttribute("password");
+			String role = (String) session.getAttribute("role");
+			String address = (String) session.getAttribute("address");
+			String phoneNumber = (String) session.getAttribute("phoneNumber");
 
-            // Encrypt password
-            String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(8));
+			String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(8));
 
-            Timestamp now = new Timestamp(System.currentTimeMillis());
+			Timestamp now = new Timestamp(System.currentTimeMillis());
 
-            User user = new User();
+			User user = new User();
 
-            user.setUserName(name);
-            user.setEmail(email);
-            user.setPassword(hashedPassword);
-            user.setRole(role);
-            user.setAddress(address);
-            user.setPhoneNumber(phoneNumber);
-            user.setCreateDate(now);
-            user.setLastLoginDate(now);
+			user.setUserName(name);
+			user.setEmail(email);
+			user.setPassword(hashedPassword);
+			user.setRole(role);
+			user.setAddress(address);
+			user.setPhoneNumber(phoneNumber);
+			user.setCreateDate(now);
+			user.setLastLoginDate(now);
 
-            UserDAOImpl dao = new UserDAOImpl();
+			UserDAOImpl dao = new UserDAOImpl();
 
-            int result = dao.addUser(user);
+			int result = dao.addUser(user);
 
-            if (result == 1) {
+			if (result == 1) {
 
-                // Remove session data
-                session.removeAttribute("otp");
-                session.removeAttribute("name");
-                session.removeAttribute("email");
-                session.removeAttribute("password");
-                session.removeAttribute("role");
-                session.removeAttribute("address");
-                session.removeAttribute("phoneNumber");
+				session.removeAttribute("otp");
+				session.removeAttribute("name");
+				session.removeAttribute("email");
+				session.removeAttribute("password");
+				session.removeAttribute("role");
+				session.removeAttribute("address");
+				session.removeAttribute("phoneNumber");
 
-                resp.sendRedirect("login.html");
+				resp.sendRedirect("login.html");
 
-            } else {
+			} else {
 
-                req.setAttribute("error", "Registration Failed");
-                RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
-                rd.forward(req, resp);
+				req.setAttribute("error", "Registration Failed");
+				RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
+				rd.forward(req, resp);
 
-            }
+			}
 
-        } else {
+		} else {
 
-            req.setAttribute("error", "Invalid OTP");
+			req.setAttribute("error", "Invalid OTP");
 
-            RequestDispatcher rd = req.getRequestDispatcher("VerifyOTP.jsp");
-            rd.forward(req, resp);
+			RequestDispatcher rd = req.getRequestDispatcher("VerifyOTP.jsp");
+			rd.forward(req, resp);
 
-        }
+		}
 
-    }
+	}
 
 }

@@ -21,15 +21,13 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		RestaurantDAOImpl restaurantDAOImpl = new RestaurantDAOImpl();
-		
+
 		List<Restaurant> list = restaurantDAOImpl.getAllRestaurants();
-		
-	
+
 		req.setAttribute("allRestaurants", list);
-		
+
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("home.jsp");
 		requestDispatcher.forward(req, resp);
-         
-		
+
 	}
 }
