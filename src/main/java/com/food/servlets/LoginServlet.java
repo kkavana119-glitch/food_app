@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 
 		String dbPassword = user.getPassword();
 
-		if (BCrypt.checkpw(password, dbPassword)) {
+		if ( BCrypt.checkpw(password, dbPassword)) {
 
 			session.setAttribute("user", user);
 

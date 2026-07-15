@@ -31,6 +31,7 @@ if (cart != null) {
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	
 <link rel="stylesheet" href="menupage.css" />
 </head>
 <body>
@@ -52,9 +53,8 @@ if (cart != null) {
 						<i class="fa-solid fa-basket-shopping"></i> <span
 							class="cart-badge"> <%=cartCount%></span>
 					</div>
-			</a> <img
-				src="Images/kavana.jpg"
-				alt="User Profile" class="profile-avatar" />
+			</a> <img src="Images/kavana.jpg" alt="User Profile"
+				class="profile-avatar" />
 		</div>
 		</div>
 	</header>
@@ -355,5 +355,21 @@ if (cart != null) {
         }
       });
     </script>
+
+	<!-- Floating Chat Button -->
+
+	<div class="chat-icon" onclick="toggleChat()">
+		<i class="fa-solid fa-comments"></i>
+	</div>
+
+	<!-- Chat Window -->
+
+	<div class="chat-window" id="chatWindow">
+		<iframe src="chatbot.jsp"></iframe>
+	</div>
+	
+	<script src="JavaScript/chatbot.js"></script>
+	
+	
 </body>
 </html>

@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="homepage.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
 </head>
 
 <body>
@@ -40,10 +41,8 @@
 			</button>
 
 			<div class="">
-				<a href="profile"> <i class=""></i>
-				<img
-				src="Images/kavana.jpg"
-				alt="User Profile" class="profile-avatar" />
+				<a href="profile"> <i class=""></i> <img src="Images/kavana.jpg"
+					alt="User Profile" class="profile-avatar" />
 				</a>
 			</div>
 		</div>
@@ -160,8 +159,8 @@
 				<div class="restaurant-card">
 
 					<div class="image-wrapper">
-						<img src="<%= restaurant.getImagePath() %>" alt="Pizza Hub" />
-						<span class="status-badge active">Open</span>
+						<img src="<%= restaurant.getImagePath() %>" alt="Pizza Hub" /> <span
+							class="status-badge active">Open</span>
 					</div>
 					<div class="restaurant-info">
 						<h3>
@@ -173,7 +172,8 @@
 							<i class="fa-solid fa-location-dot"></i>
 							<%= restaurant.getAddress() %>
 						</p>
-						<span class="meta">⭐ <%= restaurant.getRating() %> • <%= restaurant.getDeliveryTime() %> mins
+						<span class="meta">⭐ <%= restaurant.getRating() %> • <%= restaurant.getDeliveryTime() %>
+							mins
 						</span>
 					</div>
 
@@ -190,11 +190,24 @@
 		</div>
 	</section>
 
+	<!-- Floating Chat Button -->
+
+	<div class="chat-icon" onclick="toggleChat()">
+		<i class="fa-solid fa-comments"></i>
+	</div>
+
+	<div class="chat-window" id="chatWindow">
+		<iframe src="chatbot.jsp"></iframe>
+	</div>
+
 	<!-- FOOTER SECTION -->
 	<footer>
 		<h3>FoodieExpress</h3>
 		<p>Fastest Food Delivery Service</p>
 		<p>© 2026 FoodieExpress. All Rights Reserved.</p>
 	</footer>
+
+	<script src="JavaScript/chatbot.js"></script>
+
 </body>
 </html>

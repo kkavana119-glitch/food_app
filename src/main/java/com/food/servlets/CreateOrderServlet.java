@@ -16,8 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/CreateOrderServlet")
 public class CreateOrderServlet extends HttpServlet {
 
-    private static final String KEY_ID = "rzp_test_xxxxxxxxxxxxxxxx";
-    private static final String KEY_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxxx";
+    private static final String KEY_ID = "rzp_test_T9p8VqN8pMu7xS";
+    private static final String KEY_SECRET = "098VzM5Kk0Gtf904p326Mvrm";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

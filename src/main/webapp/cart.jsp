@@ -41,9 +41,8 @@
 				<i class="fa-solid fa-basket-shopping"></i> <span class="cart-badge">
 					<%=cart != null ? cart.getItems().size() : 0%></span>
 			</div>
-			<img
-				src="Images/kavana.jpg"
-				alt="User Profile" class="profile-avatar" />
+			<img src="Images/kavana.jpg" alt="User Profile"
+				class="profile-avatar" />
 		</div>
 	</header>
 
@@ -214,11 +213,9 @@
 					<button type="button" class="checkout-btn">
 
 						<a href="checkout.jsp" class="checkout-btn"
-							style="text-decoration: none; display: flex; 
-							justify-content: center; align-items: center; gap: 1px;
-							 padding: 5px 10px; width: auto;">
+							style="text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 1px; padding: 5px 10px; width: auto;">
 							Proceed to Payment <i class="fa-solid fa-arrow-right"></i>
-						</a> 
+						</a>
 					</button>
 				</div>
 
@@ -230,6 +227,16 @@
 			</aside>
 		</div>
 	</main>
+
+	<div class="chat-icon" onclick="toggleChat()">
+		<i class="fa-solid fa-comments"></i>
+	</div>
+
+	<div class="chat-window" id="chatWindow">
+		<iframe src="chatbot.jsp"></iframe>
+	</div>
+
+	<script src="JavaScript/chatbot.js"></script>
 
 
 </body>

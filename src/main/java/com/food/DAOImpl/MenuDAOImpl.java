@@ -205,7 +205,49 @@ public class MenuDAOImpl implements MenuDAO {
 
 	    return list;
 	}
+	
+	public List<Menu> getMenuByCategory(String category) {
 
+	    List<Menu> list = new ArrayList<>();
+
+	    Connection connection = DBConnection.getConnection();
+
+	    String query =
+	            "SELECT * FROM menu WHERE LOWER(category) LIKE ? OR LOWER(itemName) LIKE ?";
+
+	    try {
+
+	        PreparedStatement ps = connection.prepareStatement(query);
+
+	        ps.setString(1, "%" + category.toLowerCase() + "%");
+	        ps.setString(2, "%" + category.toLowerCase() + "%");
+
+	        System.out.println("Searching : %" + category.toLowerCase() + "%");
+
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+
+	            Menu m = new Menu();
+
+	            m.setMenuId(rs.getInt("menuId"));
+	            m.setItemName(rs.getString("itemName"));
+	            m.setDescription(rs.getString("description"));
+	            m.setPrice(rs.getDouble("price"));
+	            m.setAvailable(rs.getBoolean("isAvailable"));
+	            m.setCategory(rs.getString("category"));
+	            m.setRestaurantId(rs.getInt("restaurantId"));
+	            m.setImagePath(rs.getString("imagePath"));
+
+	            list.add(m);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return list;
+	}
 }
 
 

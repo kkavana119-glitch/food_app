@@ -48,8 +48,8 @@ List<Orders> ordersList = (List<Orders>) request.getAttribute("ordersList");
 
 			</div>
 
-			<a href="home.jsp" class="home-btn"> <i
-				class="fa-solid fa-house"></i> Continue Shopping
+			<a href="home.jsp" class="home-btn"> <i class="fa-solid fa-house"></i>
+				Continue Shopping
 			</a>
 
 		</div>
@@ -198,10 +198,22 @@ List<Orders> ordersList = (List<Orders>) request.getAttribute("ordersList");
 		</div>
 
 		<%
-}
-%>
+		}
+		%>
 
 	</div>
+
+	<!-- Floating Chat Button -->
+	<div class="chat-icon" onclick="toggleChat()">
+		<i class="fa-solid fa-comments"></i>
+	</div>
+
+	<div class="chat-window" id="chatWindow">
+		<iframe src="chatbot.jsp"></iframe>
+	</div>
+
+	<script src="JavaScript/chatbot.js"></script>
+
 
 </body>
 </html>
